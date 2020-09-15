@@ -6,8 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(name: "Justin Davies", email: "justin@gmail.com", password:"1234")
-User.create(name: "Cinthia Davies", email: "cinthia@gmail.com", password:"1234")
+
 
 
 MenuItem.create(title: "Lomo Saltado", ingredients: "Thinly sliced beef steak, onions, tomatoes, french fries, soy sauce, rice, vinegar", category: "Dinner")
