@@ -46,6 +46,6 @@ class MenuSelectionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def menu_selection_params
-      params.require(:menu_selection).permit(:user_id, :order_id)
+      params.require(:menu_selection).permit(:menu_item_id, :order_id)
     end
 end
