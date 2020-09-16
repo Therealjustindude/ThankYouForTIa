@@ -6,7 +6,9 @@ const getMenuItems = () => {
         return response.json()
     }).then(jsonObj => {
         jsonObj.forEach(menuItem => {
-            new Menu(menuItem.title, menuItem.ingredients, menuItem.category, menuItem.price, menuItem.image);
+            new Menu(menuItem.id, menuItem.title, menuItem.ingredients, menuItem.category, menuItem.price, menuItem.image);
         });
+        Menu.renderMenu();
     })
+
 }
