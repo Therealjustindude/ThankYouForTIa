@@ -13,17 +13,6 @@ class MenuItemsController < ApplicationController
     render json: @menu_item
   end
 
-  # POST /menu_items
-  def create
-    @menu_item = MenuItem.new(menu_item_params)
-
-    if @menu_item.save
-      render json: @menu_item, status: :created, location: @menu_item
-    else
-      render json: @menu_item.errors, status: :unprocessable_entity
-    end
-  end
-
   # PATCH/PUT /menu_items/1
   def update
     if @menu_item.update(menu_item_params)
@@ -46,6 +35,6 @@ class MenuItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def menu_item_params
-      params.require(:menu_item).permit(:title, :ingredient, :category)
+      params.require(:menu_item).permit(:title, :ingredients, :category, :price, :image)
     end
 end
