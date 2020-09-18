@@ -13,7 +13,15 @@ class MenuSelection{
 		let ul = document.createElement("ul")
 		ul.id = "cart-ul"
 		let div = document.createElement("div")
-		div.id= "cart-price-div"
+		div.id = "cart-price-div"
+		let btn = document.createElement("button")
+		btn.setAttribute("data-menu-item-id", item.id)
+		btn.innerText = "Remove Item"
+		btn.addEventListener("click", removeFromCart)
+		//work on remove function
+		//add check out button that post fetchs selections to db
+		//  OR
+		// send all selections to db and remove function is patch fetch
 		if (itemCart.innerText == "") {
 			cartHead.innerText = "Cart"
 			itemCart.appendChild(div)
@@ -24,8 +32,9 @@ class MenuSelection{
 		const priceDiv = document.getElementById("cart-price-div");
 		let li = document.createElement("li")
 		li.innerText = `$${item.price} | ${item.title}`
+		li.appendChild(btn)
 		cartUl.appendChild(li)
-		MenuSelection.selections.push(item)	
+		this.selections.push(item)	
 		let newCartTotal = MenuSelection.priceTotal()
 		priceDiv.innerText = `Total: $${newCartTotal}`
 	}
@@ -35,11 +44,9 @@ class MenuSelection{
 		let obj = MenuSelection.selections
 		
 		for (let i = 0; i < MenuSelection.selections.length; i++){
-			obj.forEach(e => {
-				newTotal = e.price
-				debugger
-			})
+			newTotal = newTotal + obj[i].price
 		}
 		return newTotal
 	}
+
 }
