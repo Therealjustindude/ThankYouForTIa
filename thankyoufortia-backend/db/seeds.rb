@@ -16,12 +16,4 @@ MenuItem.create(title: "Picarones", ingredients: "Chancaca syrup, Squash, Sweet 
 MenuItem.create(title: "Alfajores", ingredients: "Carmel sauce inbetween pastry cookies covered in powdered sugar", category: "Dessert", price: 5, image: "https://www.acozykitchen.com/wp-content/uploads/2019/03/AlfajoresPeruvian-11.jpg")
 MenuItem.create(title: "Inca Kola", ingredients: "CARBONATED WATER, HIGH FRUCTOSE CORN SYRUP AND/OR SUCROSE, CITRIC ACID, SODIUM BENZOATE (TO PROTECT TASTE), CAFFEINE, ARTIFICIAL AND NATURAL FLAVORS, YELLOW #5.", category: "Drink", price: 2, image: "https://c8.alamy.com/comp/BYF27J/bottles-of-inca-cola-for-sale-in-a-shop-in-peru-inca-kola-is-a-popular-BYF27J.jpg")
 
-Order.create()
-Order.create()
 
-MenuSelection.create(menu_item_id:6, order_id: 1)
-MenuSelection.create(menu_item_id:5, order_id: 1)
-MenuSelection.create(menu_item_id:1, order_id: 1)
-
-MenuSelection.create(menu_item_id:6, order_id: 2)
-MenuSelection.create(menu_item_id:2, order_id: 2)

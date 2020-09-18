@@ -11,10 +11,14 @@ class Menu {
 	}
 	static renderMenu() {
 		this.menuItems.forEach(menuItem => {
-			let parentDiv = document.createElement("div")
-			parentDiv.className = "frame"
-			let childDiv = document.createElement("div")
-			childDiv.className = "content"
+			let cardDiv = document.createElement("div")
+			cardDiv.className = "card"
+			let contentDiv = document.createElement("div")
+			contentDiv.className = "card_content"
+			let frontDiv = document.createElement("div")
+			frontDiv.className = "card_front"
+			let backDiv = document.createElement("div")
+			backDiv.className = "card_back"
 			let picDiv = document.createElement("div")
 			picDiv.className = "picture"
 			let img = document.createElement("img")
@@ -34,16 +38,30 @@ class Menu {
 			btn.className = "btn"
 			btn.innerText = "Add to Order"
 			btn.setAttribute("data-menu-item-id", menuItem.id)
-			// btn.addEventListener("click", addToOrder)
+			btn.addEventListener("click", addToSelections)
 		
-			childDiv.appendChild(picDiv)
-			childDiv.appendChild(h2Div)
-			childDiv.appendChild(ingDiv)
-			childDiv.appendChild(priceDiv)
-			childDiv.appendChild(btn)
+			backDiv.appendChild(picDiv)
+			frontDiv.appendChild(h2Div)
+			frontDiv.appendChild(ingDiv)
+			frontDiv.appendChild(priceDiv)
+			frontDiv.appendChild(btn)
+			contentDiv.appendChild(frontDiv)
+			contentDiv.appendChild(backDiv)
+			cardDiv.appendChild(contentDiv)
+
+
 			
-			parentDiv.appendChild(childDiv)
-			main.appendChild(parentDiv)
+			if (menuItem.category === "Dinner") {
+				dinner.appendChild(cardDiv)
+			}
+			if (menuItem.category === "Dessert") {
+				dessert.appendChild(cardDiv)
+			}
+			if (menuItem.category === "Drink") {
+				drink.appendChild(cardDiv)
+			}
+			
+			
 		})
 	}
 }
