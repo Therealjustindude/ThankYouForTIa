@@ -15,5 +15,9 @@ const addToSelections = (e)=>{
     alert("Added to cart.");
 }
 
+const removeFromCart = () => {
+ //just removing item from front end cart
+}
+
 
 
