@@ -14,3 +14,11 @@ const getMenuItems = () => {
         Menu.renderMenu();
     })
 }
+
+//When check out button clicked(need to create one still)
+const sendToBackEnd = () => {	
+    let currentSel = MenuSelection.selections
+    // Post fetch to db
+}
+
+
