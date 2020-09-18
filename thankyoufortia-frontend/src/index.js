@@ -15,8 +15,32 @@ const addToSelections = (e)=>{
     alert("Added to cart.");
 }
 
-const removeFromCart = () => {
- //just removing item from front end cart
+const removeFromCart = (e) => {
+    let itemId = parseInt(e.target.dataset.menuItemId);
+    let item = MenuSelection.selections.find(e => e.id == itemId);
+    var index = MenuSelection.selections.findIndex(e => e.id == itemId);
+    if (index > -1) {
+        MenuSelection.selections.splice(index, 1);
+    }
+
+    let unwantedItem = document.getElementById("cart-item-" + `${itemId}`);
+    unwantedItem.remove();
+
+    MenuSelection.newTotal = MenuSelection.newTotal - item.price;
+
+    const priceDiv = document.getElementById("cart-price-div");
+
+    priceDiv.innerText = `Total: $${MenuSelection.newTotal}`
+    
+    checkCartLength()
+    
+}
+
+const checkCartLength = () => {
+    if (MenuSelection.selections.length == 0) {
+        const cartDiv = document.getElementById("item-cart");
+        cartDiv.remove();
+    }
 }
 
 
