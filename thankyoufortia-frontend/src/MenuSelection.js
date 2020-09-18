@@ -8,8 +8,11 @@ class MenuSelection{
 	}
 
 	static addToCart(item) {
-		const itemCart = document.getElementById("item-cart");
-		const cartHead = document.getElementById("cart-head");
+		const itemCart = document.createElement("div");
+		itemCart.id = "item-cart";
+		document.getElementById("main-content").appendChild(itemCart)
+		const cartHead = document.createElement("div");
+		cartHead.id = "cart-head";
 		let ul = document.createElement("ul")
 		ul.id = "cart-ul"
 		let div = document.createElement("div")
@@ -18,12 +21,10 @@ class MenuSelection{
 		btn.setAttribute("data-menu-item-id", item.id)
 		btn.innerText = "Remove Item"
 		btn.addEventListener("click", removeFromCart)
-		//work on remove function
 		//add check out button that post fetchs selections to db
-		//  OR
-		// send all selections to db and remove function is patch fetch
 		if (itemCart.innerText == "") {
 			cartHead.innerText = "Cart"
+			itemCart.appendChild(cartHead)
 			itemCart.appendChild(div)
 			itemCart.appendChild(ul)
 		}
@@ -31,22 +32,27 @@ class MenuSelection{
 		
 		const priceDiv = document.getElementById("cart-price-div");
 		let li = document.createElement("li")
+		li.id = `cart-item-${item.id}`
 		li.innerText = `$${item.price} | ${item.title}`
 		li.appendChild(btn)
 		cartUl.appendChild(li)
-		this.selections.push(item)	
-		let newCartTotal = MenuSelection.priceTotal()
-		priceDiv.innerText = `Total: $${newCartTotal}`
+		this.selections.push(item)
+		MenuSelection.priceTotal()
+		priceDiv.innerText = `Total: $${MenuSelection.newTotal}`
+
 	}
 
+	static newTotal = 0
+
 	static priceTotal() {
-		let newTotal = 0
 		let obj = MenuSelection.selections
-		
-		for (let i = 0; i < MenuSelection.selections.length; i++){
-			newTotal = newTotal + obj[i].price
+		MenuSelection.newTotal= 0
+		for (let i = 0; i < obj.length; i++){
+			MenuSelection.newTotal = MenuSelection.newTotal + obj[i].price
 		}
-		return newTotal
+		return MenuSelection.newTotal
 	}
+
+	
 
 }
