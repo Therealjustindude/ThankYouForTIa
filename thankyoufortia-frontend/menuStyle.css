@@ -1,7 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Ranchers&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+body {
+  font-family: 'Ranchers', cursive;
+  text-align: center;
+  margin: 20px;
+  height: 100%;
+  display: grid;
+  background-color: red;
+}
 
+h2{
+    margin: 0;
+    font-weight: 400;
+}
+h3{
+    margin: 0;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+p{
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: small;
+}
+
+img {
+    max-height: 150px;
+    margin: auto;
+    display: inline-block;
+  }
+
+.card {
+    display: inline-block;
+    width: 300px;
+    padding: 1em;
+    border-radius: 15px;  
+    margin: 10px;
+    background: #ddd;
+    text-align: center;
+}
+  
+.card__btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 20px;
+}
 
