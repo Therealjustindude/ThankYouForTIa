@@ -45,7 +45,24 @@ const deleteOrder = (e) => {
 
 const orderPayed = (e) => {
     e.preventDefault();
-    // patch fetch
+    let orderId = e.target.dataset.orderId
+    let data = { order: {"id": orderId }}
+    fetch(`${ORDER_URL}/${orderId}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify( data )
+    }).then(resp => {
+        return resp.json()
+    }).then(orderObj => {
+        if (orderObj.message) {
+            alert(orderObj.message)
+        } else {
+            orderCompleted(orderObj)
+        }
+    })
 }
 
 
