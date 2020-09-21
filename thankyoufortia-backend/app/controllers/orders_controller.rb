@@ -29,8 +29,7 @@ class OrdersController < ApplicationController
 
   # PATCH/PUT /orders/1
   def update
-    # makes order attribute paid = true
-    if @order.update(order_params)
+    if @order.update(:paid => true)
       render json: @order
     else
       render json: @order.errors, status: :unprocessable_entity
@@ -50,6 +49,6 @@ class OrdersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def order_params
-      params.require(:order).permit(:menu_selections => [:id, :title])
+      params.require(:order).permit(:id, :menu_selections => [:id, :title])
     end
 end
