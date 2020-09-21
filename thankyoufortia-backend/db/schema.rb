@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_195101) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.boolean "paid", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
