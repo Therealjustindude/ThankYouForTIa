@@ -43,5 +43,42 @@ const checkCartLength = () => {
     }
 }
 
+const checkOutModal = (orderObj) => {
+    const bgModal = document.createElement('div')
+    bgModal.className = "modal-bg"
+    bgModal.id = "modal-bg"
+    const modalContent = document.createElement('div')
+    modalContent.className = "modal"
+    modalContent.id = "modal"
+    const modalH2 = document.createElement('h2')
+    modalH2.innerText = "Check Out"
+    const priceDiv = document.createElement("div")
+    priceDiv.id = "check-out-price-div"
+    priceDiv.innerText= `Total: $${MenuSelection.newTotal}` 
+    const cancelBtn = document.createElement('button')
+    cancelBtn.innerText = "Cancel Order"
+    cancelBtn.addEventListener("click", deleteOrder)
+    const payBtn = document.createElement('button')
+    payBtn.innerText = "Pay for Order"
+    payBtn.addEventListener("click", orderPayed)
+    //ADD FUNCTION FOR BUTTONS
+    const ul = document.createElement('ul')
+    ul.id = "modal-ul"
+    orderObj.menu_items.forEach(item => {
+        const li = document.createElement('li')
+        li.id = `cart-item-${item.id}`
+		li.innerText = `$${item.price} | ${item.title}`
+        ul.appendChild(li)
+    })
+    
+    modalContent.appendChild(modalH2)
+    modalContent.appendChild(priceDiv)
+    modalContent.appendChild(ul)
+    modalContent.appendChild(payBtn)
+    modalContent.appendChild(cancelBtn)
+    bgModal.appendChild(modalContent)
+    document.getElementById("main-content").appendChild(bgModal)
+}
+
 
 
