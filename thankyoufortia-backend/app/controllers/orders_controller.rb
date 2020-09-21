@@ -16,8 +16,7 @@ class OrdersController < ApplicationController
   # POST /orders
   def create
     new_order = Order.create
-    params[:order][:id] = new_order.id
-    params[:order][:menu_selections] = params[:menu_selections]
+  
     order_params[:menu_selections].each{|obj|
       new_order.menu_selections.build(menu_item_id: obj[:id])
     }
@@ -51,6 +50,6 @@ class OrdersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def order_params
-      params.require(:order).permit!
+      params.require(:order).permit(:menu_selections => [:id, :title])
     end
 end
