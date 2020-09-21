@@ -3,7 +3,8 @@ header{
 	justify-content: space-between;
 	align-items: center;
 	padding: 30px 10%;
-	background-color: grey;
+	background-color: var(--purple);
+	color: var(--pink);
 }
 
 .nav_links{
@@ -14,7 +15,7 @@ header{
 	padding: 0px 20px;
 }
 .nav_links li a{
-	color: black;
+	color: var(--pink);
 	transition: all 0.3s ease 0s;
 	text-decoration: none;
 	padding: 3px;

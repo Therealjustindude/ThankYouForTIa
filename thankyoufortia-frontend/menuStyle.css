@@ -5,28 +5,41 @@
     margin: 0;
     padding: 0;
 }
+
+:root {
+    --blue: #A0D2DB;
+    --pink: #edc6cf;
+    --yellow: #F0C808;
+    --red: #DD1C1A;
+    --purple: #613dc1;
+  }
+
 body {
   font-family: 'Ranchers', cursive;
+  color: var(--pink);
   text-align: center;
   margin: 20px;
   height: 100%;
   display: grid;
-  background-color: red;
+  background-color: var(--purple);
 }
 
 h2{
     margin: 0;
     font-weight: 400;
+    color: var(--pink);
 }
 h3{
     margin: 0;
     font-weight: 400;
     text-decoration: underline;
+    color: var(--yellow);
 }
 
 p{
     font-family: 'PT Sans Narrow', sans-serif;
     font-size: small;
+    color: black;
 }
 
 img {
@@ -41,12 +54,13 @@ img {
     padding: 1em;
     border-radius: 15px;  
     margin: 10px;
-    background: #ddd;
+    background: var(--blue);
     text-align: center;
+    color: var(--yellow);
 }
   
 .card__btn {
-    background-color: #4CAF50; /* Green */
+    background-color: var(--red);
     border: none;
     color: white;
     padding: 15px 32px;
@@ -56,4 +70,87 @@ img {
     font-size: 16px;
     border-radius: 20px;
 }
+
+.card__btn:hover{
+    background-color: var(--yellow);
+    color:var(--red);
+    border-style: ridge;
+    border-color: var(--pink);
+}
+
+.cart_div {
+    display: inline-block;
+    width: 300px;
+    padding: 1em;
+    border-radius: 15px;  
+    margin: 10px;
+    background: var(--blue);
+    text-align: center;
+    color: var(--yellow);
+    border-style: solid;
+    border-color: var(--red);
+}
+
+
+
+#cart-head {
+    margin: 0;
+    font-weight: 400;
+    font-size: x-large;
+    text-decoration: underline;
+    color: black;
+}
+
+#cart-price-div{
+    border-style: solid;
+    border-color: var(--pink);
+    margin: 1px;
+    padding: 1px;
+}
+
+#check-out-btn{
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    color: white;
+    background-color: var(--purple);
+    border-radius: 10px;
+    border-style: none;
+}
+#check-out-btn:hover{
+    color: white;
+    background-color: var(--red);
+    border-style: ridge;
+    border-color: var(--pink);
+}
+
+#cart__content li{
+    list-style: none;
+    margin: 4px;
+    padding: 1px;
+    color: black;
+}
+
+#cart-ul{
+    border-style: solid;
+    border-color: var(--pink);
+    margin: 1px;
+    padding: 1px;
+}
+#cart-ul button{
+    margin: 3px;
+    padding: 3px;
+    color: white;
+    background-color: var(--red);
+    border-radius: 10px;
+    border-style: none;
+}
+#cart-ul button:hover{
+    border-style: ridge;
+    border-color: var(--pink);
+}
+
+
+
 

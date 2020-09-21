@@ -8,17 +8,21 @@ class MenuSelection{
 	}
 
 	static addToCart(item) {
-		if (document.getElementById("item-cart") === null) {
+		if (document.getElementById("cart__content") === null) {
+			let cardDiv = document.createElement("div")
+			cardDiv.className = "cart_div"
 			const divCart = document.createElement("div");
-			divCart.id = "item-cart";
-			document.getElementById("main-content").appendChild(divCart)
+			divCart.id = "cart__content";
+			cardDiv.appendChild(divCart)
+			document.getElementById("main-content").appendChild(cardDiv)
 		}
-		const itemCart = document.getElementById("item-cart")
+		const itemCart = document.getElementById("cart__content")
 		const cartHead = document.createElement("div");
 		cartHead.id = "cart-head";
 		const subBtn = document.createElement("button")
 		subBtn.addEventListener("click", sendToBackEnd)
-		subBtn.innerText= "Check Out"
+		subBtn.innerText = "Check Out"
+		subBtn.id = "check-out-btn"
 		let ul = document.createElement("ul")
 		ul.id = "cart-ul"
 		let div = document.createElement("div")
