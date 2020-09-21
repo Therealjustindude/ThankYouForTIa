@@ -11,7 +11,7 @@
     --pink: #edc6cf;
     --yellow: #F0C808;
     --red: #DD1C1A;
-    --purple: #613dc1;
+    --purple: #401aa8;
   }
 
 body {
@@ -63,7 +63,7 @@ img {
     background-color: var(--red);
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 12px 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
