@@ -61,6 +61,7 @@ const checkOutModal = (orderObj) => {
     const payBtn = document.createElement('button')
     payBtn.innerText = "Pay for Order"
     payBtn.addEventListener("click", orderPayed)
+    payBtn.setAttribute("data-order-id", orderObj.id)
     //ADD FUNCTION FOR BUTTONS
     const ul = document.createElement('ul')
     ul.id = "modal-ul"
@@ -80,5 +81,11 @@ const checkOutModal = (orderObj) => {
     document.getElementById("main-content").appendChild(bgModal)
 }
 
+const orderCompleted = (orderObj) => {
+    resetCart()
+    let modalBg = document.getElementById('modal-bg')
+    modalBg.remove()
+    alert('Order Completed')
+}
 
 
