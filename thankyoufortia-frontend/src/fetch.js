@@ -1,6 +1,7 @@
 const BASE_URL = 'http://localhost:3000';
 const MENU_URL = `${BASE_URL}/menu_items`;
-const CART_URL = `${BASE_URL}/menu_selections`;
+const MENUSEL_URL = `${BASE_URL}/menu_selections`;
+const ORDER_URL = `${BASE_URL}/orders`;
 
 const navCart = document.getElementById("nav-cart")
 
@@ -15,10 +16,35 @@ const getMenuItems = () => {
     })
 }
 
-//When check out button clicked(need to create one still)
-const sendToBackEnd = () => {	
+const sendToBackEnd = (e) => {	
+    e.preventDefault();
     let currentSel = MenuSelection.selections
-    // Post fetch to db
+    fetch(ORDER_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify( {"menu_selections": currentSel })
+    }).then(resp => {
+        return resp.json()
+    }).then(orderObj => {
+        if (orderObj.message) {
+            alert(orderObj.message)
+        } else {
+            checkOutModal(orderObj)
+        }
+    })
+}
+
+const deleteOrder = (e) => {
+    e.preventDefault();
+    // delete fetch
+}
+
+const orderPayed = (e) => {
+    e.preventDefault();
+    // patch fetch
 }
 
 
