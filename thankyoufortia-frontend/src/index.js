@@ -57,11 +57,13 @@ const checkOutModal = (orderObj) => {
     priceDiv.innerText= `Total: $${MenuSelection.newTotal}` 
     const cancelBtn = document.createElement('button')
     cancelBtn.innerText = "Cancel Order"
+    cancelBtn.setAttribute("data-order-id", orderObj.id)
     cancelBtn.addEventListener("click", deleteOrder)
     const payBtn = document.createElement('button')
     payBtn.innerText = "Pay for Order"
-    payBtn.addEventListener("click", orderPayed)
     payBtn.setAttribute("data-order-id", orderObj.id)
+    payBtn.addEventListener("click", orderPayed)
+    
     //ADD FUNCTION FOR BUTTONS
     const ul = document.createElement('ul')
     ul.id = "modal-ul"
@@ -81,11 +83,18 @@ const checkOutModal = (orderObj) => {
     document.getElementById("main-content").appendChild(bgModal)
 }
 
-const orderCompleted = (orderObj) => {
+const orderCompleted = () => {
     MenuSelection.resetCart()
     let modalBg = document.getElementById('modal-bg')
     modalBg.remove()
     alert('Order Completed')
+}
+
+const orderCanceled = () => {
+    MenuSelection.resetCart()
+    let modalBg = document.getElementById('modal-bg')
+    modalBg.remove()
+    alert('Order Canceled')
 }
 
 

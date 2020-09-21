@@ -40,7 +40,17 @@ const sendToBackEnd = (e) => {
 
 const deleteOrder = (e) => {
     e.preventDefault();
-    // delete fetch
+    let orderId = e.target.dataset.orderId
+    let data = { order: {"id": orderId }}
+    fetch(`${ORDER_URL}/${orderId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify( data )
+    })
+    orderCanceled()
 }
 
 const orderPayed = (e) => {
@@ -60,7 +70,7 @@ const orderPayed = (e) => {
         if (orderObj.message) {
             alert(orderObj.message)
         } else {
-            orderCompleted(orderObj)
+            orderCompleted()
         }
     })
 }
