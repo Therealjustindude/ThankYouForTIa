@@ -61,9 +61,9 @@ class MenuSelection{
 	}
 
 	static resetCart() {
-		// newTotal = 0
-		// selections =[]
-		//clear cart div from DOM
+		MenuSelection.newTotal = 0
+		MenuSelection.selections.length=0
+		document.getElementById("item-cart").remove()
 	}
 
 	

@@ -82,7 +82,7 @@ const checkOutModal = (orderObj) => {
 }
 
 const orderCompleted = (orderObj) => {
-    // resetCart()
+    MenuSelection.resetCart()
     let modalBg = document.getElementById('modal-bg')
     modalBg.remove()
     alert('Order Completed')
