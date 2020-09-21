@@ -15,17 +15,22 @@ class OrdersController < ApplicationController
 
   # POST /orders
   def create
-    @order = Order.new(order_params)
-
-    if @order.save
-      render json: @order, status: :created, location: @order
+    new_order = Order.create
+    params[:order][:id] = new_order.id
+    params[:order][:menu_selections] = params[:menu_selections]
+    order_params[:menu_selections].each{|obj|
+      new_order.menu_selections.build(menu_item_id: obj[:id])
+    }
+    if new_order.save
+      render json: new_order, status: :created, location: new_order
     else
-      render json: @order.errors, status: :unprocessable_entity
+      render json: new_order.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /orders/1
   def update
+    # makes order attribute paid = true
     if @order.update(order_params)
       render json: @order
     else
@@ -46,6 +51,6 @@ class OrdersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def order_params
-      params.require(:order).permit()
+      params.require(:order).permit!
     end
 end
