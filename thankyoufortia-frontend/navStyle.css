@@ -14,7 +14,10 @@ header{
 	padding: 0px 20px;
 }
 .nav_links li a{
+	color: black;
 	transition: all 0.3s ease 0s;
+	text-decoration: none;
+	padding: 3px;
 }
 .nav_links li a:hover{
 	color: pink;
