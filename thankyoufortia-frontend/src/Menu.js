@@ -14,39 +14,34 @@ class Menu {
 			let cardDiv = document.createElement("div")
 			cardDiv.className = "card"
 			let contentDiv = document.createElement("div")
-			contentDiv.className = "card_content"
-			let frontDiv = document.createElement("div")
-			frontDiv.className = "card_front"
-			let backDiv = document.createElement("div")
-			backDiv.className = "card_back"
+			contentDiv.className = "card__content"
 			let picDiv = document.createElement("div")
-			picDiv.className = "picture"
+			picDiv.className = "card__img_container"
 			let img = document.createElement("img")
 			img.src = `${menuItem.image}`
 			img.alt = `${menuItem.title}`
-			picDiv.appendChild(img)
+			img.className = "card__img"
 			let h2Div = document.createElement("h2")
 			h2Div.innerText = `${menuItem.title}`
-			h2Div.className = "title"
-			let ingDiv = document.createElement("p")
-			ingDiv.innerText = `${menuItem.ingredients}`
-			ingDiv.className = "ingredients"
+			h2Div.className = "card__header"
+			let text = document.createElement("p")
+			text.innerText = `${menuItem.ingredients}`
+			text.className = "card__text"
 			let priceDiv = document.createElement("div")
 			priceDiv.innerText = `$${menuItem.price}`
-			priceDiv.className = "price"
+			priceDiv.className = "card__price"
 			let btn = document.createElement("button")
-			btn.className = "btn"
+			btn.className = "card__btn"
 			btn.innerText = "Add to Order"
 			btn.setAttribute("data-menu-item-id", menuItem.id)
 			btn.addEventListener("click", addToSelections)
-		
-			backDiv.appendChild(picDiv)
-			frontDiv.appendChild(h2Div)
-			frontDiv.appendChild(ingDiv)
-			frontDiv.appendChild(priceDiv)
-			frontDiv.appendChild(btn)
-			contentDiv.appendChild(frontDiv)
-			contentDiv.appendChild(backDiv)
+			
+			picDiv.appendChild(img)
+			cardDiv.appendChild(picDiv)
+			contentDiv.appendChild(h2Div)
+			contentDiv.appendChild(text)
+			contentDiv.appendChild(priceDiv)
+			contentDiv.appendChild(btn)
 			cardDiv.appendChild(contentDiv)
 
 
