@@ -60,6 +60,12 @@ class MenuSelection{
 		return MenuSelection.newTotal
 	}
 
+	static resetCart() {
+		// newTotal = 0
+		// selections =[]
+		//clear cart div from DOM
+	}
+
 	
 
 }
