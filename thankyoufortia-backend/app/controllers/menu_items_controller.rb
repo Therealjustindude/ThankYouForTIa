@@ -8,25 +8,6 @@ class MenuItemsController < ApplicationController
     render json: @menu_items
   end
 
-  # GET /menu_items/1
-  def show
-    render json: @menu_item
-  end
-
-  # PATCH/PUT /menu_items/1
-  def update
-    if @menu_item.update(menu_item_params)
-      render json: @menu_item
-    else
-      render json: @menu_item.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /menu_items/1
-  def destroy
-    @menu_item.destroy
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_menu_item
