@@ -19,13 +19,14 @@ const getMenuItems = () => {
 const sendToBackEnd = (e) => {	
     e.preventDefault();
     let currentSel = MenuSelection.selections
+    let data = { order: {"menu_selections": currentSel }}
     fetch(ORDER_URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
         },
-        body: JSON.stringify( {"menu_selections": currentSel })
+        body: JSON.stringify( data )
     }).then(resp => {
         return resp.json()
     }).then(orderObj => {
