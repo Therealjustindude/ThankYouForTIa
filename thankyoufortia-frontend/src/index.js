@@ -18,7 +18,7 @@ const addToSelections = (e)=>{
 const removeFromCart = (e) => {
     let itemId = parseInt(e.target.dataset.menuItemId);
     let item = MenuSelection.selections.find(e => e.id == itemId);
-    var index = MenuSelection.selections.findIndex(e => e.id == itemId);
+    let index = MenuSelection.selections.findIndex(e => e.id == itemId);
     if (index > -1) {
         MenuSelection.selections.splice(index, 1);
     }

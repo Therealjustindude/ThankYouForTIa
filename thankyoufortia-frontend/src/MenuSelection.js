@@ -7,6 +7,7 @@ class MenuSelection{
 		MenuSelection.addToCart(this)
 	}
 
+
 	static addToCart(item) {
 		if (document.getElementById("cart__content") === null) {
 			const cardDiv = document.createElement("div")
@@ -42,7 +43,6 @@ class MenuSelection{
 		btn.setAttribute("data-menu-item-id", item.id)
 		btn.innerText = "Remove Item"
 		btn.addEventListener("click", removeFromCart)
-		//add check out button that post fetchs selections to db
 		if (itemCart.innerText == "") {
 			cartHead.innerText = "Cart"
 			itemCart.appendChild(cartHead)
@@ -56,14 +56,18 @@ class MenuSelection{
 		const priceDiv = document.getElementById("cart-price-div");
 		let li = document.createElement("li")
 		li.id = `cart-item-${item.id}`
-		li.innerText = `$${item.price} | ${item.title}`
+		li.innerText = `$${item.displayInCart()}`
 		li.appendChild(btn)
 		cartUl.appendChild(li)
 		this.selections.push(item)
-		MenuSelection.priceTotal()
-		priceDiv.innerText = `Total: $${MenuSelection.newTotal}`
+		this.priceTotal()
+		priceDiv.innerText = `Total: $${this.newTotal}`
 
 	}
+
+	displayInCart() {
+		return this.price + " | " + this.title
+	}	
 
 	static newTotal = 0
 
