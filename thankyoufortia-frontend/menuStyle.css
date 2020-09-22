@@ -34,7 +34,6 @@ h2{
 h3{
     margin: 0;
     font-weight: 400;
-    text-decoration: underline;
     background: linear-gradient(6deg, #F0C808 48%, #edc6cf 20%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
