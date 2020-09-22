@@ -10,18 +10,20 @@
     --blue: #A0D2DB;
     --pink: #edc6cf;
     --yellow: #F0C808;
-    --red: #DD1C1A;
+    --red: #DE3163;
     --purple: #401aa8;
   }
 
 body {
+  margin: 0;
   font-family: 'Ranchers', cursive;
   color: var(--pink);
   text-align: center;
-  margin: 20px;
   height: 100%;
   display: grid;
-  background-color: var(--purple);
+  background: rgb(222,49,99);
+  background: linear-gradient(162deg, rgba(222,49,99,1) 52%, rgba(64,26,168,1) 100%);
+  
 }
 
 h2{
@@ -33,7 +35,10 @@ h3{
     margin: 0;
     font-weight: 400;
     text-decoration: underline;
-    color: var(--yellow);
+    /* color: var(--yellow); */
+    background: linear-gradient(6deg, #F0C808 48%, #edc6cf 20%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 p{
@@ -72,10 +77,24 @@ img {
 }
 
 .card__btn:hover{
-    background-color: var(--yellow);
-    color:var(--red);
     border-style: ridge;
+    color: white;
     border-color: var(--pink);
+    background: linear-gradient(158deg, rgba(222,49,99,1) 25%, rgba(64,26,168,1) 100%);    
+}
+
+.card__price{
+    margin: 2px;
+    background: linear-gradient(160deg, #F0C808 40%, #A0D2DB 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card__header{
+    margin: 2px;
+    background: linear-gradient(14deg, #F0C808 40%, #edc6cf 54%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .cart_div {
@@ -97,8 +116,9 @@ img {
     margin: 0;
     font-weight: 400;
     font-size: x-large;
-    text-decoration: underline;
-    color: black;
+    background: linear-gradient(158deg, rgba(222,49,99,1) 25%, rgba(64,26,168,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #cart-price-div{
@@ -113,9 +133,9 @@ img {
     margin: 10px 0;
     padding: 10px;
     width: 100%;
-    color: white;
-    background-color: var(--purple);
-    border-radius: 10px;
+    color: var(--pink);
+    background: linear-gradient(158deg, rgba(222,49,99,1) 25%, rgba(64,26,168,1) 100%);
+    border-radius: 5px;
     border-style: none;
 }
 #check-out-btn:hover{
@@ -141,14 +161,16 @@ img {
 #cart-ul button{
     margin: 3px;
     padding: 3px;
-    color: white;
+    color: var(--pink);
     background-color: var(--red);
-    border-radius: 10px;
+    border-radius: 5px;
     border-style: none;
 }
 #cart-ul button:hover{
     border-style: ridge;
+    color: white;
     border-color: var(--pink);
+    background: linear-gradient(158deg, rgba(222,49,99,1) 25%, rgba(64,26,168,1) 100%);
 }
 
 

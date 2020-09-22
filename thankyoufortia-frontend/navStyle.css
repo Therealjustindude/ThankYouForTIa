@@ -1,10 +1,19 @@
-header{
+html {
+	scroll-behavior: smooth;
+  }
+
+#navbar{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 30px 10%;
-	background-color: var(--purple);
+	padding: 15px;
 	color: var(--pink);
+	width: 100%;
+	margin: 0;
+	background: rgb(222,49,99);
+  	background: linear-gradient(162deg, rgba(222,49,99,1) 52%, #edc6cf 100%);
+	/* background: rgb(238,174,202);
+	background: linear-gradient(162deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%); */
 }
 
 .nav_links{
@@ -15,11 +24,23 @@ header{
 	padding: 0px 20px;
 }
 .nav_links li a{
-	color: var(--pink);
+	/* color: var(--pink); */
+	background: linear-gradient(158deg, rgba(222,49,99,1) 25%, rgba(64,26,168,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 	transition: all 0.3s ease 0s;
 	text-decoration: none;
 	padding: 3px;
 }
 .nav_links li a:hover{
-	color: pink;
+	background: linear-gradient(160deg, #edc6cf 43%, #A0D2DB 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+.sticky {
+	position: fixed;
+	top:0;
+	z-index: 1;
+	width: 100%;
+  }
