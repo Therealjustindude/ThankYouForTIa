@@ -9,12 +9,23 @@ class MenuSelection{
 
 	static addToCart(item) {
 		if (document.getElementById("cart__content") === null) {
-			let cardDiv = document.createElement("div")
+			const cardDiv = document.createElement("div")
 			cardDiv.className = "cart_div"
+			cardDiv.id = "cart_div"
 			const divCart = document.createElement("div");
 			divCart.id = "cart__content";
 			cardDiv.appendChild(divCart)
 			document.getElementById("main-content").appendChild(cardDiv)
+			const navLi = document.createElement("li");
+			navLi.id="nav-cart-li"
+			const navLink = document.createElement("a");
+			navLink.href= "#cart__content"
+			navLink.id = "nav-cart"
+			navLink.innerText= "Cart"
+			navLi.appendChild(navLink)
+			const parentEl= document.getElementById("nav_links")
+			const childEl = parentEl.firstElementChild
+			parentEl.insertBefore(navLi, childEl)
 		}
 		const itemCart = document.getElementById("cart__content")
 		const cartHead = document.createElement("div");
@@ -38,6 +49,7 @@ class MenuSelection{
 			itemCart.appendChild(div)
 			itemCart.appendChild(subBtn)
 			itemCart.appendChild(ul)
+
 		}
 		const cartUl = document.getElementById("cart-ul");
 		
@@ -66,8 +78,8 @@ class MenuSelection{
 
 	static resetCart() {
 		MenuSelection.newTotal = 0
-		MenuSelection.selections.length=0
-		document.getElementById("item-cart").remove()
+		MenuSelection.selections.length = 0
+		document.getElementById("cart_div").remove()
 	}
 
 	
