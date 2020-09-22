@@ -38,8 +38,10 @@ const removeFromCart = (e) => {
 
 const checkCartLength = () => {
     if (MenuSelection.selections.length == 0) {
-        const cartDiv = document.getElementById("item-cart");
+        const cartDiv = document.getElementById("cart_div");
         cartDiv.remove();
+        const cartNav = document.getElementById("nav-cart-li");
+        cartNav.remove();
     }
 }
 
@@ -87,6 +89,8 @@ const orderCompleted = () => {
     MenuSelection.resetCart()
     let modalBg = document.getElementById('modal-bg')
     modalBg.remove()
+    const cartNav = document.getElementById("nav-cart-li");
+    cartNav.remove();
     alert('Order Completed')
 }
 
@@ -94,6 +98,8 @@ const orderCanceled = () => {
     MenuSelection.resetCart()
     let modalBg = document.getElementById('modal-bg')
     modalBg.remove()
+    const cartNav = document.getElementById("nav-cart-li");
+    cartNav.remove();
     alert('Order Canceled')
 }
 
