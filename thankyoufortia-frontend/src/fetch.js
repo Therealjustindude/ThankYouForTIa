@@ -10,9 +10,9 @@ const getMenuItems = () => {
         return response.json()
     }).then(jsonObj => {
         jsonObj.forEach(menuItem => {
-            new Menu(menuItem.id, menuItem.title, menuItem.ingredients, menuItem.category, menuItem.price, menuItem.image);
+            new MenuItem(menuItem.id, menuItem.title, menuItem.ingredients, menuItem.category, menuItem.price, menuItem.image);
         });
-        Menu.renderMenu();
+        MenuItem.renderMenu();
     })
 }
 

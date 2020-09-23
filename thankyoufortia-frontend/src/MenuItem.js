@@ -1,4 +1,4 @@
-class Menu {
+class MenuItem {
 	static menuItems = []
 	constructor(id, title, ingredients, category, price, image) {
 		this.id = id;
@@ -7,7 +7,7 @@ class Menu {
 		this.category = category;
 		this.price = price;
 		this.image = image;
-		Menu.menuItems.push(this)
+		MenuItem.menuItems.push(this)
 	}
 	static renderMenu() {
 		this.menuItems.forEach(menuItem => {
