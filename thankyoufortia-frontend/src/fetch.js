@@ -3,8 +3,6 @@ const MENU_URL = `${BASE_URL}/menu_items`;
 const MENUSEL_URL = `${BASE_URL}/menu_selections`;
 const ORDER_URL = `${BASE_URL}/orders`;
 
-const navCart = document.getElementById("nav-cart")
-
 const getMenuItems = () => {
 	fetch(MENU_URL).then(response => {
         return response.json()
@@ -17,7 +15,6 @@ const getMenuItems = () => {
 }
 
 const sendToBackEnd = (e) => {	
-    e.preventDefault();
     let currentSel = MenuSelection.selections
     let data = { order: {"menu_selections": currentSel }}
     fetch(ORDER_URL, {
@@ -39,7 +36,6 @@ const sendToBackEnd = (e) => {
 }
 
 const deleteOrder = (e) => {
-    e.preventDefault();
     let orderId = e.target.dataset.orderId
     let data = { order: {"id": orderId }}
     fetch(`${ORDER_URL}/${orderId}`, {
@@ -54,7 +50,6 @@ const deleteOrder = (e) => {
 }
 
 const orderPayed = (e) => {
-    e.preventDefault();
     let orderId = e.target.dataset.orderId
     let data = { order: {"id": orderId }}
     fetch(`${ORDER_URL}/${orderId}`, {

@@ -7,14 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     getMenuItems();
 })
 
-const addToSelections = (e)=>{
-    e.preventDefault();
-    let itemId = parseInt(e.target.dataset.menuItemId)
-    let currentSelection = Menu.menuItems.find(e => e.id === itemId)
-    new MenuSelection(currentSelection.id, currentSelection.title, currentSelection.price)
-    alert("Added to cart.");
-}
-
 const removeFromCart = (e) => {
     let itemId = parseInt(e.target.dataset.menuItemId);
     let item = MenuSelection.selections.find(e => e.id == itemId);
@@ -58,15 +50,14 @@ const checkOutModal = (orderObj) => {
     priceDiv.id = "check-out-price-div"
     priceDiv.innerText= `Total: $${MenuSelection.newTotal}` 
     const cancelBtn = document.createElement('button')
+    cancelBtn.id= "cancel-order-btn"
     cancelBtn.innerText = "Cancel Order"
     cancelBtn.setAttribute("data-order-id", orderObj.id)
-    cancelBtn.addEventListener("click", deleteOrder)
     const payBtn = document.createElement('button')
+    payBtn.id= "pay-order-btn"
     payBtn.innerText = "Pay for Order"
     payBtn.setAttribute("data-order-id", orderObj.id)
-    payBtn.addEventListener("click", orderPayed)
     
-    //ADD FUNCTION FOR BUTTONS
     const ul = document.createElement('ul')
     ul.id = "modal-ul"
     orderObj.menu_items.forEach(item => {
@@ -82,7 +73,7 @@ const checkOutModal = (orderObj) => {
     modalContent.appendChild(payBtn)
     modalContent.appendChild(cancelBtn)
     bgModal.appendChild(modalContent)
-    document.getElementById("main-content").appendChild(bgModal)
+    main.appendChild(bgModal)
 }
 
 const orderCompleted = () => {

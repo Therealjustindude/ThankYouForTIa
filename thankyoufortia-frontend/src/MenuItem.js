@@ -34,7 +34,6 @@ class MenuItem {
 			btn.className = "card__btn"
 			btn.innerText = "Add to Order"
 			btn.setAttribute("data-menu-item-id", menuItem.id)
-			btn.addEventListener("click", addToSelections)
 			
 			picDiv.appendChild(img)
 			cardDiv.appendChild(picDiv)
@@ -44,8 +43,6 @@ class MenuItem {
 			contentDiv.appendChild(btn)
 			cardDiv.appendChild(contentDiv)
 
-
-			
 			if (menuItem.category === "Dinner") {
 				dinner.appendChild(cardDiv)
 			}
@@ -55,8 +52,6 @@ class MenuItem {
 			if (menuItem.category === "Drink") {
 				drink.appendChild(cardDiv)
 			}
-			
-			
 		})
 	}
 }
