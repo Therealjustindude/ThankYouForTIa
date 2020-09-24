@@ -1,22 +1,17 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :update, :destroy]
+  # def index
+  #   @orders = Order.all
 
-  # GET /orders
-  def index
-    @orders = Order.all
+  #   render json: @orders
+  # end
 
-    render json: @orders
-  end
+  # def show
+  #   render json: @order
+  # end
 
-  # GET /orders/1
-  def show
-    render json: @order
-  end
-
-  # POST /orders
   def create
     new_order = Order.create
-  
     order_params[:menu_selections].each{|obj|
       new_order.menu_selections.build(menu_item_id: obj[:id])
     }
@@ -27,7 +22,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /orders/1
   def update
     if @order.update(:paid => true)
       render json: @order
@@ -36,18 +30,15 @@ class OrdersController < ApplicationController
     end
   end
 
-  # DELETE /orders/1
   def destroy
     @order.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
     def order_params
       params.require(:order).permit(:id, :menu_selections => [:id, :title])
     end
