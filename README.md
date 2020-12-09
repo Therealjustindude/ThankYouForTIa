@@ -3,7 +3,7 @@ This is an app for an imaginary food truck I always wanted to start. You can see
 
 ## The Details:
 
-This app is built using a RoR backend and a Vanilla JS frontend. The Database used is PostgreSQL and in the seeds.rb file I created the menu items. 
+This app is built using a RailsAPI and a Vanilla JS frontend. The Database used is PostgreSQL and in the seeds.rb file I created the menu items. 
 
 
 ### Backend: Rails 
